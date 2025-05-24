@@ -3,7 +3,7 @@
 <title>Lediga dagar</title>
 <!--
 
-Gabriel Å 2003
+Gabriel Ã… 2003
 
 -->
 
@@ -31,30 +31,30 @@ function holidays(year) {
 
 	var holidayDates = [
 		// general holidays (fixed)
-		{date: new Date(year,  0,  1), name: "Nyårsdagen", generalHoliday: true},
+		{date: new Date(year,  0,  1), name: "NyÃ¥rsdagen", generalHoliday: true},
 		{date: new Date(year,  0,  6), name: "Trettondagen", generalHoliday: true},
 		{date: new Date(year,  4,  1), name: "1:a maj", generalHoliday: true},
 		{date: new Date(year, 11, 24), name: "Julafton", generalHoliday: true},
 		{date: new Date(year, 11, 25), name: "Juldagen", generalHoliday: true},
 		{date: new Date(year, 11, 26), name: "Annandag jul", generalHoliday: true},
-		{date: new Date(year, 11, 31), name: "Nyårsafton", generalHoliday: true},
+		{date: new Date(year, 11, 31), name: "NyÃ¥rsafton", generalHoliday: true},
 		
 		// general holidays (dynamic)
-		{date: easter, name: "Påskdagen", generalHoliday: true},
+		{date: easter, name: "PÃ¥skdagen", generalHoliday: true},
 		{date: midsummer, name: "Midsommar", generalHoliday: true},
 		{date: allaHelgonsDag(year), name: "Alla helgons dag", generalHoliday: true},
 		
 		// general derived holidays (dynamic)
-		{date: new Date(year, easter.getMonth(), easter.getDate() - 2), name: "Långfredag", generalHoliday: true},
-		{date: new Date(year, easter.getMonth(), easter.getDate() + 1), name: "Annandag påsk", generalHoliday: true},
-		{date: allSaints, name: "Kristi himmelsfärd", generalHoliday: true},
+		{date: new Date(year, easter.getMonth(), easter.getDate() - 2), name: "LÃ¥ngfredag", generalHoliday: true},
+		{date: new Date(year, easter.getMonth(), easter.getDate() + 1), name: "Annandag pÃ¥sk", generalHoliday: true},
+		{date: allSaints, name: "Kristi himmelsfÃ¤rd", generalHoliday: true},
 		{date: new Date(year, easter.getMonth(), easter.getDate() + 7*7), name: "Pingstdagen", generalHoliday: true},
 		
 		// company specific holidays
-		{date: new Date(year, easter.getMonth(), easter.getDate() - 3), name: "Skärtorsdag", generalHoliday: false},
+		{date: new Date(year, easter.getMonth(), easter.getDate() - 3), name: "SkÃ¤rtorsdag", generalHoliday: false},
 		{date: new Date(year, midsummer.getMonth(), midsummer.getDate() - 2), name: "Day before midsummer eve", generalHoliday: false},
 		{date: new Date(year, allSaints.getMonth(), allSaints.getDate() - 1), name: "Day before All saints", generalHoliday: false},
-		// {date: new Date(year, easter.getMonth(), easter.getDate() + 5*7 + 5), name: "Klämdag", generalHoliday: false},
+		// {date: new Date(year, easter.getMonth(), easter.getDate() + 5*7 + 5), name: "KlÃ¤mdag", generalHoliday: false},
 		// {date: new Date(year, 11, 24), name: "Julledigt", generalHoliday: false},
 		// {date: new Date(year, 11, 27), name: "Julledigt", generalHoliday: false},
 		// {date: new Date(year, 11, 28), name: "Julledigt", generalHoliday: false},
@@ -89,13 +89,13 @@ function easterSunday(year) {
 }
 
 function midsummerDay(year) {
-	// midsommardagen den lördag som infaller under tiden den 20--26 juni
+	// midsommardagen den lÃ¶rdag som infaller under tiden den 20--26 juni
 	var guess = new Date(year, 5, 20);
 	return new Date(guess.getFullYear(), guess.getMonth(), guess.getDate() + 6 - guess.getDay());
 }
 
 function allaHelgonsDag(year) {
-	// alla helgons dag den lördag som infaller under tiden den 31 oktober--den 6 november
+	// alla helgons dag den lÃ¶rdag som infaller under tiden den 31 oktober--den 6 november
 	var guess = new Date(year, 9, 31);
 	return new Date(guess.getFullYear(), guess.getMonth(), guess.getDate() + 6 - guess.getDay());
 }
@@ -117,10 +117,10 @@ function displayList() {
 	}
 
 	ih += '</table><br>';
-	document.all.freeDays.innerHTML = ih + "Antal lediga dagar detta år: <b>" + tot + "</b>";
+	document.all.freeDays.innerHTML = ih + "Antal lediga dagar detta Ã¥r: <b>" + tot + "</b>";
 
 	var satSunDays = getSatSunDayCount(new Date(year, 0, 1), new Date(year, 11, 31));
-	document.all.satSunDays.innerHTML = "Antal lördagar och söndagar detta år: <b>" + satSunDays + "</b>";
+	document.all.satSunDays.innerHTML = "Antal lÃ¶rdagar och sÃ¶ndagar detta Ã¥r: <b>" + satSunDays + "</b>";
 }
 
 
@@ -141,7 +141,7 @@ function getSatSunDayCount(startDate, endDate) {
 
 
 function getDateString(d) {
-	const dayNames = ["söndag", "måndag", "tisdag", "onsdag", "torsdag", "fredag", "lördag"];
+	const dayNames = ["sÃ¶ndag", "mÃ¥ndag", "tisdag", "onsdag", "torsdag", "fredag", "lÃ¶rdag"];
 	return d.getFullYear() + "-" + addLeading0(d.getMonth()+1) + "-" + addLeading0(d.getDate()) + "</td><td>" + dayNames[d.getDay()];
 	//return d.getDate() + "/" + (d.getMonth()+1) + "</td><td>" + dayNames[d.getDay()];
 }
@@ -180,8 +180,8 @@ function setup() {
 </head>
 <body onload="setup();">
 <h3>Arbetsfria dagar</h3>
-<p>För år <select name="year" id="year" size="1" onchange="displayList();"></select> är dessa dagar helgdagar/klämdagar,<br>
-<input type="checkbox" id="showSunSat" checked onclick="displayList();" name="showSunSat">inkludera lördagar & söndagar:</p>
+<p>FÃ¶r Ã¥r <select name="year" id="year" size="1" onchange="displayList();"></select> Ã¤r dessa dagar helgdagar/klÃ¤mdagar,<br>
+<input type="checkbox" id="showSunSat" checked onclick="displayList();" name="showSunSat">inkludera lÃ¶rdagar & sÃ¶ndagar:</p>
 <div id="freeDays"></div>
 <div id="satSunDays"></div>
 </body>
